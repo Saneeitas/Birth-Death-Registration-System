@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model admin_record {
+  id           Int    @id @default(autoincrement())
+  username     String @db.VarChar(45)
+  userpassword String @db.VarChar(45)
+}
+
+model birth_record {
+  id             Int      @id @default(autoincrement())
+  Birth_id       String   @db.VarChar(255)
+  Fullname       String   @db.VarChar(255)
+  Sex            String   @db.VarChar(45)
+  Place_of_birth String   @db.VarChar(255)
+  DOB            DateTime @db.Date
+  Weight         Float
+}
+
+model death_record {
+  id              Int      @id @default(autoincrement())
+  Death_id        String   @db.VarChar(255)
+  Fullname        String   @db.VarChar(255)
+  Sex             String   @db.VarChar(45)
+  Place_of_death  String   @db.VarChar(255)
+  DOD             DateTime @db.Date
+  Nature_of_death String   @db.VarChar(255)
+}
